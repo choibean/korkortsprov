@@ -186,3 +186,8 @@ p { margin: 0.4em 0; }
   .bars li { grid-template-columns: 1fr auto; }
   .bars .bar { grid-column: 1 / -1; }
 }
+
+/* review cards and explanation boxes: colour only the border/label, not the whole text */
+.review.ok, .review.bad, .expl.ok, .expl.bad { color: var(--text); font-weight: 400; }
+.expl.ok strong { color: var(--green); }
+.expl.bad strong { color: var(--red); }
