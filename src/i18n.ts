@@ -1,0 +1,95 @@
+import type { Cat, Lang } from './types'
+
+const strings = {
+  appName: { sv: 'Körkortsprov', en: 'Körkortsprov' },
+  tagline: {
+    sv: 'Gratis övningsprov för teoriprovet, behörighet B. Svenska och engelska. Uppdaterat för 2026.',
+    en: 'Free practice for the Swedish car licence (B) theory test. Swedish and English. Updated for 2026.',
+  },
+  free: { sv: 'Helt gratis. Inget konto. Ingen reklam.', en: 'Completely free. No account. No ads.' },
+  examTitle: { sv: 'Provsimulering', en: 'Exam simulation' },
+  examDesc: {
+    sv: '70 frågor på 50 minuter, som hos Trafikverket. Resultat och förklaringar när du är klar.',
+    en: '70 questions in 50 minutes, like the real Trafikverket test. Results and explanations at the end.',
+  },
+  studyTitle: { sv: 'Öva per område', en: 'Practise by area' },
+  studyDesc: {
+    sv: 'Direkt feedback och förklaring efter varje fråga.',
+    en: 'Instant feedback and an explanation after every question.',
+  },
+  signsTitle: { sv: 'Vägmärken', en: 'Road signs' },
+  signsDesc: { sv: 'Bläddra bland alla vägmärken i banken.', en: 'Browse every sign in the bank.' },
+  infoTitle: { sv: 'Så funkar provet 2026', en: 'How the test works in 2026' },
+  start: { sv: 'Starta', en: 'Start' },
+  startExam: { sv: 'Starta provet', en: 'Start the exam' },
+  allAreas: { sv: 'Alla områden', en: 'All areas' },
+  wrongOnes: { sv: 'Öva på mina fel', en: 'Practise my mistakes' },
+  question: { sv: 'Fråga', en: 'Question' },
+  of: { sv: 'av', en: 'of' },
+  next: { sv: 'Nästa', en: 'Next' },
+  previous: { sv: 'Föregående', en: 'Previous' },
+  check: { sv: 'Svara', en: 'Answer' },
+  finish: { sv: 'Lämna in', en: 'Submit' },
+  quit: { sv: 'Avbryt', en: 'Quit' },
+  confirmQuit: { sv: 'Avbryta provet? Dina svar sparas inte.', en: 'Quit the test? Your answers will not be saved.' },
+  confirmFinish: {
+    sv: 'Du har obesvarade frågor. Lämna in ändå?',
+    en: 'You have unanswered questions. Submit anyway?',
+  },
+  correct: { sv: 'Rätt!', en: 'Correct!' },
+  wrong: { sv: 'Fel.', en: 'Wrong.' },
+  correctAnswer: { sv: 'Rätt svar', en: 'Correct answer' },
+  explanation: { sv: 'Förklaring', en: 'Explanation' },
+  timeLeft: { sv: 'Tid kvar', en: 'Time left' },
+  timeUp: { sv: 'Tiden är ute. Provet lämnas in.', en: 'Time is up. The test has been submitted.' },
+  result: { sv: 'Resultat', en: 'Result' },
+  passed: { sv: 'Godkänt', en: 'Passed' },
+  failed: { sv: 'Underkänt', en: 'Not passed' },
+  passNote: {
+    sv: 'Gräns för godkänt här: 56 av 70 (80 %). Hos Trafikverket räknas 65 av de 70 frågorna och du behöver 52 rätt.',
+    en: 'Pass mark here: 56 of 70 (80 %). At Trafikverket 65 of the 70 questions count and you need 52 correct.',
+  },
+  studyDone: { sv: 'Du har gått igenom alla frågor i passet.', en: 'You have gone through every question in this session.' },
+  perArea: { sv: 'Per område', en: 'By area' },
+  review: { sv: 'Gå igenom frågorna', en: 'Review the questions' },
+  showAll: { sv: 'Visa alla', en: 'Show all' },
+  showWrong: { sv: 'Visa bara fel', en: 'Show only wrong' },
+  yourAnswer: { sv: 'Ditt svar', en: 'Your answer' },
+  unanswered: { sv: 'Obesvarad', en: 'Unanswered' },
+  home: { sv: 'Till startsidan', en: 'Back to start' },
+  retryWrong: { sv: 'Öva på felen', en: 'Practise the wrong ones' },
+  newExam: { sv: 'Nytt prov', en: 'New exam' },
+  progress: { sv: 'Din statistik', en: 'Your progress' },
+  answered: { sv: 'besvarade frågor', en: 'questions answered' },
+  accuracy: { sv: 'rätt', en: 'correct' },
+  examsTaken: { sv: 'genomförda prov', en: 'exams taken' },
+  lastExams: { sv: 'Senaste proven', en: 'Recent exams' },
+  reset: { sv: 'Nollställ statistik', en: 'Reset progress' },
+  confirmReset: { sv: 'Nollställa all sparad statistik?', en: 'Reset all saved progress?' },
+  questionsInBank: { sv: 'frågor i banken', en: 'questions in the bank' },
+  back: { sv: 'Tillbaka', en: 'Back' },
+  signMeaning: { sv: 'Vad betyder detta vägmärke?', en: 'What does this road sign mean?' },
+  footer: {
+    sv: 'Frågorna är egna och bygger på trafikförordningen, Transportstyrelsens och Trafikverkets regler. Sajten är inte kopplad till Trafikverket. Vägmärken via Wikimedia Commons.',
+    en: 'The questions are original and based on Swedish traffic law and the rules published by Transportstyrelsen and Trafikverket. Not affiliated with Trafikverket. Sign images via Wikimedia Commons.',
+  },
+  reportError: { sv: 'Hittat ett fel? Öppna ett ärende på GitHub.', en: 'Found a mistake? Open an issue on GitHub.' },
+  noWrong: { sv: 'Inga fel att öva på ännu.', en: 'No mistakes to practise yet.' },
+  flag: { sv: 'Markera', en: 'Flag' },
+  flagged: { sv: 'Markerad', en: 'Flagged' },
+} as const
+
+export type Key = keyof typeof strings
+
+export function t(lang: Lang, key: Key): string {
+  return strings[key][lang]
+}
+
+export const CAT_NAMES: Record<Cat, Record<Lang, string>> = {
+  regler: { sv: 'Trafikregler', en: 'Traffic rules' },
+  skyltar: { sv: 'Vägmärken', en: 'Road signs' },
+  sakerhet: { sv: 'Trafiksäkerhet', en: 'Traffic safety' },
+  fordon: { sv: 'Fordonskännedom & manövrering', en: 'Vehicle knowledge & handling' },
+  miljo: { sv: 'Miljö', en: 'Environment' },
+  person: { sv: 'Personliga förutsättningar', en: 'Personal factors' },
+}
