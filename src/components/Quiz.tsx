@@ -6,6 +6,8 @@ import { CAT_NAMES, t } from '../i18n'
 interface Props {
   lang: Lang
   mode: Mode
+  /** Set when mode === 'test': which numbered fixed test this is. */
+  testNumber?: number
   items: Prepared[]
   onFinish: (answers: (number | null)[]) => void
   onQuit: () => void
@@ -17,7 +19,7 @@ function fmt(s: number) {
   return `${m}:${r.toString().padStart(2, '0')}`
 }
 
-export default function Quiz({ lang, mode, items, onFinish, onQuit }: Props) {
+export default function Quiz({ lang, mode, testNumber, items, onFinish, onQuit }: Props) {
   const [idx, setIdx] = useState(0)
   const [answers, setAnswers] = useState<(number | null)[]>(() => items.map(() => null))
   const [revealed, setRevealed] = useState<boolean[]>(() => items.map(() => false))
@@ -28,7 +30,7 @@ export default function Quiz({ lang, mode, items, onFinish, onQuit }: Props) {
   const finishedRef = useRef(false)
 
   useEffect(() => {
-    if (mode !== 'exam') return
+    if (mode === 'study') return
     const id = setInterval(() => {
       setLeft((s) => {
         if (s <= 1) {
@@ -68,7 +70,7 @@ export default function Quiz({ lang, mode, items, onFinish, onQuit }: Props) {
 
   const submit = () => {
     if (finishedRef.current) return
-    if (mode === 'exam' && answeredCount < items.length && !confirm(t(lang, 'confirmFinish'))) return
+    if (mode !== 'study' && answeredCount < items.length && !confirm(t(lang, 'confirmFinish'))) return
     finishedRef.current = true
     onFinish(answers)
   }
@@ -95,8 +97,11 @@ export default function Quiz({ lang, mode, items, onFinish, onQuit }: Props) {
       <header className="top">
         <button className="link" onClick={quit}>✕ {t(lang, 'quit')}</button>
         <div className="qmeta">
-          <span>{t(lang, 'question')} {idx + 1} {t(lang, 'of')} {items.length}</span>
-          {mode === 'exam' && (
+          <span>
+            {testNumber ? `${t(lang, 'testLabel')} ${testNumber} · ` : ''}
+            {t(lang, 'question')} {idx + 1} {t(lang, 'of')} {items.length}
+          </span>
+          {mode !== 'study' && (
             <span className={`timer ${left < 300 ? 'low' : ''}`} aria-live="polite">{t(lang, 'timeLeft')} {fmt(left)}</span>
           )}
         </div>
@@ -134,7 +139,7 @@ export default function Quiz({ lang, mode, items, onFinish, onQuit }: Props) {
 
       <div className="nav">
         <button className="btn ghost" onClick={() => setIdx(idx - 1)} disabled={idx === 0}>{t(lang, 'previous')}</button>
-        {mode === 'exam' && (
+        {mode !== 'study' && (
           <button className={`btn ghost ${flags.has(idx) ? 'flagged' : ''}`} onClick={toggleFlag}>
             {flags.has(idx) ? '⚑ ' + t(lang, 'flagged') : '⚐ ' + t(lang, 'flag')}
           </button>
@@ -146,7 +151,7 @@ export default function Quiz({ lang, mode, items, onFinish, onQuit }: Props) {
         )}
       </div>
 
-      {mode === 'exam' && (
+      {mode !== 'study' && (
         <div className="grid" aria-label="Navigator">
           {items.map((_, i) => (
             <button
@@ -159,7 +164,7 @@ export default function Quiz({ lang, mode, items, onFinish, onQuit }: Props) {
           ))}
         </div>
       )}
-      {mode === 'exam' && !isLast && (
+      {mode !== 'study' && !isLast && (
         <p className="center"><button className="link" onClick={submit}>{t(lang, 'finish')} ({answeredCount}/{items.length})</button></p>
       )}
     </div>

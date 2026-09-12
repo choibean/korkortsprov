@@ -3,10 +3,111 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Gratis övningsprov för det svenska teoriprovet (körkort B). 70 frågor, 50 minuter, på svenska och engelska. Uppdaterat för 2026." />
+    <meta name="description" content="Öva gratis inför Trafikverkets kunskapsprov för B-körkort. 8 övningsprov med 70 frågor på 50 minuter, förklaringar till varje fråga och alla vägmärken. Uppdaterat för 2026. Inget konto." />
     <meta name="theme-color" content="#0f3d8a" />
     <link rel="icon" href="/signs/B4.svg" type="image/svg+xml" />
-    <title>Körkortsprov – gratis teoriprov B (svenska/engelska)</title>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/icon-180.png" />
+    <link rel="canonical" href="https://korkortsprov.vercel.app/" />
+    <link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/" />
+    <link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en" />
+    <link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/" />
+    <title>Teoriprov körkort B – gratis övningsprov på svenska och engelska | Körkortsprov</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Körkortsprov" />
+    <meta property="og:title" content="Teoriprov körkort B – gratis övningsprov på svenska och engelska | Körkortsprov" />
+    <meta property="og:description" content="Öva gratis inför Trafikverkets kunskapsprov för B-körkort. 8 övningsprov med 70 frågor på 50 minuter, förklaringar till varje fråga och alla vägmärken. Uppdaterat för 2026. Inget konto." />
+    <meta property="og:url" content="https://korkortsprov.vercel.app/" />
+    <meta property="og:image" content="https://korkortsprov.vercel.app/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="sv_SE" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Teoriprov körkort B – gratis övningsprov på svenska och engelska | Körkortsprov" />
+    <meta name="twitter:description" content="Öva gratis inför Trafikverkets kunskapsprov för B-körkort. 8 övningsprov med 70 frågor på 50 minuter, förklaringar till varje fråga och alla vägmärken. Uppdaterat för 2026. Inget konto." />
+    <meta name="twitter:image" content="https://korkortsprov.vercel.app/og.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "name": "Körkortsprov",
+            "url": "https://korkortsprov.vercel.app/",
+            "inLanguage": ["sv", "en"]
+          },
+          {
+            "@type": "WebApplication",
+            "name": "Körkortsprov",
+            "url": "https://korkortsprov.vercel.app/",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Any",
+            "inLanguage": ["sv", "en"],
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "SEK"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Hur många frågor är det på teoriprovet?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Teoriprovet (kunskapsprov B) har 70 frågor. Av dessa räknas 65, de övriga 5 är testfrågor som inte påverkar resultatet. Provtiden är 50 minuter och du behöver 52 rätt av 65 för godkänt."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Är den här sajten gratis?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Ja, helt gratis. Inget konto behövs, det finns ingen reklam och ingen betalvägg."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Är det här samma frågor som hos Trafikverket?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Nej. Frågorna här är egna och täcker samma regler och samma fem kunskapsområden som det riktiga provet, men Trafikverkets faktiska frågor är inte offentliga."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Kan jag öva på engelska?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Ja, hela sajten finns på engelska. Trafikverkets riktiga teoriprov erbjuds på svenska, engelska och arabiska."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Hur många övningsprov finns det?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "8 nummererade övningsprov plus ett slumpat prov draget ur hela frågebanken. Du kan också öva per kunskapsområde i studieläget."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Vad ändrades 2026?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sedan 19 augusti 2026 gäller ett godkänt teoriprov i ett år (tidigare fyra månader). Sedan 1 augusti 2026 krävs inte längre introduktionsutbildning för privat övningskörning."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

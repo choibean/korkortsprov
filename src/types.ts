@@ -1,6 +1,6 @@
 export type Lang = 'sv' | 'en'
 export type Cat = 'regler' | 'skyltar' | 'sakerhet' | 'fordon' | 'miljo' | 'person'
-export type Mode = 'exam' | 'study'
+export type Mode = 'exam' | 'study' | 'test'
 
 export interface QText {
   q: string

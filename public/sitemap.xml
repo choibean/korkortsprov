@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://korkortsprov.vercel.app/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/en</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/prov</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/prov" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/test" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/prov" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/en/test</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/prov" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/test" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/prov" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/prov/1</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/prov/1" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/test/1" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/prov/1" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/en/test/1</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/prov/1" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/test/1" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/prov/1" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/prov/2</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/prov/2" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/test/2" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/prov/2" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/en/test/2</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/prov/2" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/test/2" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/prov/2" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/prov/3</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/prov/3" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/test/3" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/prov/3" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/en/test/3</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/prov/3" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/test/3" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/prov/3" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/prov/4</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/prov/4" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/test/4" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/prov/4" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/en/test/4</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/prov/4" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/test/4" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/prov/4" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/prov/5</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/prov/5" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/test/5" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/prov/5" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/en/test/5</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/prov/5" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/test/5" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/prov/5" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/prov/6</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/prov/6" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/test/6" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/prov/6" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/en/test/6</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/prov/6" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/test/6" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/prov/6" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/prov/7</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/prov/7" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/test/7" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/prov/7" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/en/test/7</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/prov/7" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/test/7" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/prov/7" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/prov/8</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/prov/8" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/test/8" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/prov/8" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/en/test/8</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/prov/8" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/test/8" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/prov/8" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/ova</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/ova" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/practise" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/ova" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/en/practise</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/ova" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/practise" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/ova" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/ova/trafikregler</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/ova/trafikregler" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/practise/traffic-rules" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/ova/trafikregler" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/en/practise/traffic-rules</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/ova/trafikregler" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/practise/traffic-rules" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/ova/trafikregler" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/ova/vagmarken</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/ova/vagmarken" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/practise/road-signs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/ova/vagmarken" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/en/practise/road-signs</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/ova/vagmarken" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/practise/road-signs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/ova/vagmarken" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/ova/trafiksakerhet</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/ova/trafiksakerhet" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/practise/traffic-safety" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/ova/trafiksakerhet" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/en/practise/traffic-safety</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/ova/trafiksakerhet" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/practise/traffic-safety" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/ova/trafiksakerhet" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/ova/fordon</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/ova/fordon" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/practise/vehicle" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/ova/fordon" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/en/practise/vehicle</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/ova/fordon" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/practise/vehicle" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/ova/fordon" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/ova/miljo</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/ova/miljo" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/practise/environment" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/ova/miljo" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/en/practise/environment</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/ova/miljo" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/practise/environment" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/ova/miljo" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/ova/personliga-forutsattningar</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/ova/personliga-forutsattningar" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/practise/personal-factors" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/ova/personliga-forutsattningar" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/en/practise/personal-factors</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/ova/personliga-forutsattningar" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/practise/personal-factors" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/ova/personliga-forutsattningar" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/vagmarken</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/vagmarken" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/road-signs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/vagmarken" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/en/road-signs</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/vagmarken" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/road-signs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/vagmarken" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/regler-2026</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/regler-2026" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/rules-2026" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/regler-2026" />
+  </url>
+  <url>
+    <loc>https://korkortsprov.vercel.app/en/rules-2026</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://korkortsprov.vercel.app/regler-2026" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://korkortsprov.vercel.app/en/rules-2026" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://korkortsprov.vercel.app/regler-2026" />
+  </url>
+</urlset>

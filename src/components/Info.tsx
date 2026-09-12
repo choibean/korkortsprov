@@ -1,5 +1,8 @@
 import type { Lang } from '../types'
 import { t } from '../i18n'
+import { buildPath } from '../router'
+import Link from './Link'
+import LangSwitch from './LangSwitch'
 
 const CONTENT: Record<Lang, { h: string; items: string[] }[]> = {
   sv: [
@@ -82,11 +85,12 @@ const CONTENT: Record<Lang, { h: string; items: string[] }[]> = {
   ],
 }
 
-export default function Info({ lang, onBack }: { lang: Lang; onBack: () => void }) {
+export default function Info({ lang }: { lang: Lang }) {
   return (
     <div className="page">
       <header className="top">
-        <button className="link" onClick={onBack}>← {t(lang, 'back')}</button>
+        <Link className="link" href={buildPath(lang, { name: 'home' })}>← {t(lang, 'back')}</Link>
+        <LangSwitch lang={lang} route={{ name: 'info' }} />
       </header>
       <h1>{t(lang, 'infoTitle')}</h1>
       <p className="muted">

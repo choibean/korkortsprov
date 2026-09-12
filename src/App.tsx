@@ -1,20 +1,16 @@
-import { useState } from 'react'
-import type { Cat, Lang, Mode, Prepared, Question } from './types'
+import { useEffect, useState } from 'react'
+import type { Cat, Mode, Prepared, Question } from './types'
 import { CATS, EXAM_MIX, EXAM_PASS, EXAM_TOTAL } from './types'
 import { ALL_QUESTIONS } from './data'
-import { loadLang, loadStats, recordAnswers, recordExam, saveLang, saveStats, type Stats } from './storage'
+import { loadStats, recordAnswers, recordExam, recordTest, saveStats, type Stats } from './storage'
+import { useRoute, navigate, buildPath, type Route } from './router'
+import { buildFixedTest } from './tests'
+import { useSeo } from './seo'
 import Home from './components/Home'
 import Quiz from './components/Quiz'
 import Result from './components/Result'
 import Info from './components/Info'
 import SignGallery from './components/SignGallery'
-
-type View =
-  | { name: 'home' }
-  | { name: 'quiz'; mode: Mode; items: Prepared[] }
-  | { name: 'result'; mode: Mode; items: Prepared[]; answers: (number | null)[] }
-  | { name: 'info' }
-  | { name: 'signs' }
 
 const STUDY_SIZE = 25
 
@@ -61,39 +57,88 @@ function buildWrong(all: Question[], stats: Stats): Prepared[] {
     .map(prepare)
 }
 
-export default function App() {
-  const [lang, setLangState] = useState<Lang>(loadLang)
-  const [stats, setStats] = useState<Stats>(loadStats)
-  const [view, setView] = useState<View>({ name: 'home' })
+type SessionKind =
+  | { type: 'exam' }
+  | { type: 'test'; n: number }
+  | { type: 'study'; cat?: Cat }
+  | { type: 'wrong' }
 
-  const setLang = (l: Lang) => {
-    setLangState(l)
-    saveLang(l)
-    document.documentElement.lang = l
+function sessionKindFor(route: Route): SessionKind | null {
+  switch (route.name) {
+    case 'exam':
+      return { type: 'exam' }
+    case 'test':
+      return { type: 'test', n: route.n }
+    case 'study':
+      return { type: 'study', cat: route.cat }
+    case 'wrong':
+      return { type: 'wrong' }
+    default:
+      return null
   }
+}
+
+function buildSessionItems(kind: SessionKind, all: Question[], stats: Stats): Prepared[] {
+  switch (kind.type) {
+    case 'exam':
+      return buildExam(all)
+    case 'test':
+      return buildFixedTest(all, kind.n).map(prepare)
+    case 'study':
+      return buildStudy(all, stats, kind.cat)
+    case 'wrong':
+      return buildWrong(all, stats)
+  }
+}
+
+function modeFor(kind: SessionKind): Mode {
+  return kind.type === 'exam' ? 'exam' : kind.type === 'test' ? 'test' : 'study'
+}
+
+export default function App() {
+  const { lang, route, navId } = useRoute()
+  const [stats, setStats] = useState<Stats>(loadStats)
+  const [items, setItems] = useState<Prepared[] | null>(null)
+  const [answers, setAnswers] = useState<(number | null)[] | null>(null)
+
+  const kind = sessionKindFor(route)
+
+  useEffect(() => {
+    const k = sessionKindFor(route)
+    if (!k) {
+      setItems(null)
+      setAnswers(null)
+      return
+    }
+    setItems(buildSessionItems(k, ALL_QUESTIONS, stats))
+    setAnswers(null)
+    window.scrollTo(0, 0)
+    // Rebuild only when the route (or a forced re-navigation) actually changes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [route, navId])
+
+  useSeo(lang, route)
 
   const updateStats = (s: Stats) => {
     setStats(s)
     saveStats(s)
   }
 
-  const finish = (mode: Mode, items: Prepared[], answers: (number | null)[]) => {
+  const finish = (answersIn: (number | null)[]) => {
+    if (!items || !kind) return
     const results = items.map((it, i) => ({
       id: it.q.id,
-      correct: answers[i] !== null && it.order[answers[i]!] === it.q.correct,
+      correct: answersIn[i] !== null && it.order[answersIn[i]!] === it.q.correct,
     }))
-    let s = recordAnswers(stats, results.filter((_, i) => answers[i] !== null))
-    if (mode === 'exam') {
-      const score = results.filter((r) => r.correct).length
+    let s = recordAnswers(stats, results.filter((_, i) => answersIn[i] !== null))
+    const score = results.filter((r) => r.correct).length
+    if (kind.type === 'exam') {
       s = recordExam(s, { date: new Date().toISOString(), score, total: items.length, passed: score >= EXAM_PASS })
+    } else if (kind.type === 'test') {
+      s = recordTest(s, kind.n, score, items.length, score >= EXAM_PASS)
     }
     updateStats(s)
-    setView({ name: 'result', mode, items, answers })
-    window.scrollTo(0, 0)
-  }
-
-  const go = (v: View) => {
-    setView(v)
+    setAnswers(answersIn)
     window.scrollTo(0, 0)
   }
 
@@ -101,51 +146,38 @@ export default function App() {
     (q) => (stats.seen[q.id]?.w ?? 0) > 0 && stats.seen[q.id].w >= stats.seen[q.id].c,
   ).length
 
-  switch (view.name) {
-    case 'quiz':
-      return (
-        <Quiz
-          key={view.items.map((i) => i.q.id).join(',')}
-          lang={lang}
-          mode={view.mode}
-          items={view.items}
-          onFinish={(answers) => finish(view.mode, view.items, answers)}
-          onQuit={() => go({ name: 'home' })}
-        />
-      )
-    case 'result':
-      return (
-        <Result
-          lang={lang}
-          mode={view.mode}
-          items={view.items}
-          answers={view.answers}
-          onHome={() => go({ name: 'home' })}
-          onNewExam={() => go({ name: 'quiz', mode: 'exam', items: buildExam(ALL_QUESTIONS) })}
-          onRetryWrong={() => {
-            const wrong = view.items.filter((it, i) => view.answers[i] === null || it.order[view.answers[i]!] !== it.q.correct)
-            go({ name: 'quiz', mode: 'study', items: shuffle(wrong.map((w) => prepare(w.q))) })
-          }}
-        />
-      )
+  if (items && kind) {
+    const mode = modeFor(kind)
+    const testNumber = kind.type === 'test' ? kind.n : undefined
+    if (answers) {
+      return <Result lang={lang} mode={mode} testNumber={testNumber} items={items} answers={answers} />
+    }
+    return (
+      <Quiz
+        key={items.map((i) => i.q.id).join(',')}
+        lang={lang}
+        mode={mode}
+        testNumber={testNumber}
+        items={items}
+        onFinish={finish}
+        onQuit={() => navigate(buildPath(lang, { name: 'home' }))}
+      />
+    )
+  }
+
+  switch (route.name) {
     case 'info':
-      return <Info lang={lang} onBack={() => go({ name: 'home' })} />
+      return <Info lang={lang} />
     case 'signs':
-      return <SignGallery lang={lang} onBack={() => go({ name: 'home' })} />
+      return <SignGallery lang={lang} />
     default:
       return (
         <Home
           lang={lang}
-          setLang={setLang}
           stats={stats}
           total={ALL_QUESTIONS.length}
           wrongCount={wrongCount}
-          onExam={() => go({ name: 'quiz', mode: 'exam', items: buildExam(ALL_QUESTIONS) })}
-          onStudy={(cat) => go({ name: 'quiz', mode: 'study', items: buildStudy(ALL_QUESTIONS, stats, cat) })}
-          onWrong={() => go({ name: 'quiz', mode: 'study', items: buildWrong(ALL_QUESTIONS, stats) })}
-          onSigns={() => go({ name: 'signs' })}
-          onInfo={() => go({ name: 'info' })}
-          onReset={() => updateStats({ seen: {}, exams: [] })}
+          onReset={() => updateStats({ seen: {}, exams: [], tests: {} })}
         />
       )
   }

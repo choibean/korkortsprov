@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://korkortsprov.vercel.app/sitemap.xml

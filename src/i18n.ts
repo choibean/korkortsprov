@@ -77,6 +77,14 @@ const strings = {
   noWrong: { sv: 'Inga fel att öva på ännu.', en: 'No mistakes to practise yet.' },
   flag: { sv: 'Markera', en: 'Flag' },
   flagged: { sv: 'Markerad', en: 'Flagged' },
+  testsTitle: { sv: 'Övningsprov', en: 'Practice tests' },
+  testLabel: { sv: 'Prov', en: 'Test' },
+  startTestPrefix: { sv: 'Starta prov', en: 'Start test' },
+  randomExam: { sv: 'Slumpat prov', en: 'Random exam' },
+  notTaken: { sv: 'Ej gjort', en: 'Not taken' },
+  retryTest: { sv: 'Gör om provet', en: 'Retry this test' },
+  nextTest: { sv: 'Nästa prov', en: 'Next test' },
+  faqTitle: { sv: 'Vanliga frågor', en: 'Frequently asked questions' },
 } as const
 
 export type Key = keyof typeof strings

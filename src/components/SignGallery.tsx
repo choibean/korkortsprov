@@ -1,12 +1,16 @@
 import type { Lang } from '../types'
 import { t } from '../i18n'
 import { SIGNS, SIGN_CLASSES } from '../data/signs'
+import { buildPath } from '../router'
+import Link from './Link'
+import LangSwitch from './LangSwitch'
 
-export default function SignGallery({ lang, onBack }: { lang: Lang; onBack: () => void }) {
+export default function SignGallery({ lang }: { lang: Lang }) {
   return (
     <div className="page">
       <header className="top">
-        <button className="link" onClick={onBack}>← {t(lang, 'back')}</button>
+        <Link className="link" href={buildPath(lang, { name: 'home' })}>← {t(lang, 'back')}</Link>
+        <LangSwitch lang={lang} route={{ name: 'signs' }} />
       </header>
       <h1>{t(lang, 'signsTitle')}</h1>
       {SIGN_CLASSES.map((cls) => (

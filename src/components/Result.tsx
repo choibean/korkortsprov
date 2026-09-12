@@ -2,24 +2,33 @@ import { useState } from 'react'
 import type { Cat, Lang, Mode, Prepared } from '../types'
 import { CATS, EXAM_PASS } from '../types'
 import { CAT_NAMES, t } from '../i18n'
+import { buildPath } from '../router'
+import { NUM_TESTS } from '../tests'
+import Link from './Link'
 
 interface Props {
   lang: Lang
   mode: Mode
+  /** Set when mode === 'test': which numbered fixed test this is. */
+  testNumber?: number
   items: Prepared[]
   answers: (number | null)[]
-  onHome: () => void
-  onNewExam: () => void
-  onRetryWrong: () => void
 }
 
-export default function Result({ lang, mode, items, answers, onHome, onNewExam, onRetryWrong }: Props) {
+export default function Result({ lang, mode, testNumber, items, answers }: Props) {
   const [onlyWrong, setOnlyWrong] = useState(true)
   const isRight = (i: number) => answers[i] !== null && items[i].order[answers[i]!] === items[i].q.correct
   const score = items.filter((_, i) => isRight(i)).length
   const answered = answers.filter((a) => a !== null).length
-  const passed = score >= EXAM_PASS
+  const isScored = mode === 'exam' || mode === 'test'
+  const passed = isScored && score >= EXAM_PASS
   const wrongCount = items.length - score
+
+  const heading = mode === 'test'
+    ? `${t(lang, 'testLabel')} ${testNumber}`
+    : isScored
+      ? passed ? t(lang, 'passed') : t(lang, 'failed')
+      : t(lang, 'result')
 
   const perCat = CATS.map((c) => {
     const idxs = items.map((it, i) => (it.q.cat === c ? i : -1)).filter((i) => i >= 0)
@@ -31,19 +40,35 @@ export default function Result({ lang, mode, items, answers, onHome, onNewExam, 
   return (
     <div className="page">
       <header className="top">
-        <button className="link" onClick={onHome}>← {t(lang, 'home')}</button>
+        <Link className="link" href={buildPath(lang, { name: 'home' })}>← {t(lang, 'home')}</Link>
       </header>
 
-      <section className={`card result ${mode === 'exam' ? (passed ? 'pass' : 'fail') : ''}`}>
-        <h1>{mode === 'exam' ? (passed ? t(lang, 'passed') : t(lang, 'failed')) : t(lang, 'result')}</h1>
+      <section className={`card result ${isScored ? (passed ? 'pass' : 'fail') : ''}`}>
+        <h1>{heading}</h1>
+        {mode === 'test' && <p className={passed ? 'ok' : 'bad'}>{passed ? t(lang, 'passed') : t(lang, 'failed')}</p>}
         <p className="score">{score} / {items.length}</p>
-        {mode === 'exam' ? <p className="muted">{t(lang, 'passNote')}</p> : <p className="muted">{t(lang, 'studyDone')}</p>}
-        {mode === 'exam' && answered < items.length && (
+        {isScored ? <p className="muted">{t(lang, 'passNote')}</p> : <p className="muted">{t(lang, 'studyDone')}</p>}
+        {isScored && answered < items.length && (
           <p className="muted">{items.length - answered} {t(lang, 'unanswered').toLowerCase()}</p>
         )}
         <div className="actions">
-          {wrongCount > 0 && <button className="btn" onClick={onRetryWrong}>{t(lang, 'retryWrong')} ({wrongCount})</button>}
-          {mode === 'exam' && <button className="btn ghost" onClick={onNewExam}>{t(lang, 'newExam')}</button>}
+          {mode === 'test' && testNumber !== undefined && (
+            <>
+              <Link className="btn" href={buildPath(lang, { name: 'test', n: testNumber })}>{t(lang, 'retryTest')}</Link>
+              {testNumber < NUM_TESTS && (
+                <Link className="btn" href={buildPath(lang, { name: 'test', n: testNumber + 1 })}>
+                  {t(lang, 'nextTest')} {testNumber + 1}
+                </Link>
+              )}
+              <Link className="btn ghost" href={buildPath(lang, { name: 'exam' })}>{t(lang, 'randomExam')}</Link>
+            </>
+          )}
+          {mode === 'exam' && (
+            <Link className="btn ghost" href={buildPath(lang, { name: 'exam' })}>{t(lang, 'newExam')}</Link>
+          )}
+          {wrongCount > 0 && (
+            <Link className="btn" href={buildPath(lang, { name: 'wrong' })}>{t(lang, 'retryWrong')} ({wrongCount})</Link>
+          )}
         </div>
       </section>
 
